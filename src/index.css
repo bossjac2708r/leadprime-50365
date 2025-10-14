@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LeadBridge Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Core Background & Text Colors */
+    --background: 0 0% 100%;
+    --foreground: 210 24% 16%;
+    
+    /* LeadBridge Brand Colors */
+    --solar-100: 45 100% 95%;
+    --solar-200: 45 100% 88%;
+    --solar-300: 45 89% 72%;
+    --solar-400: 45 100% 65%;
+    --solar-500: 45 100% 55%;
+    --solar-600: 45 100% 45%;
+    --solar-700: 45 89% 35%;
+    
+    /* Night Colors for Text */
+    --night-800: 210 24% 16%;
+    --night-900: 210 40% 8%;
+    
+    /* Sky Blue Accent */
+    --sky-300: 200 71% 73%;
+    --sky-400: 200 85% 65%;
+    
+    /* Purple Accent */
+    --purple-accent: 245 58% 60%;
+    
+    /* Success Green */
+    --success: 142 76% 36%;
+    --success-foreground: 355 7% 97%;
+    
+    /* LeadBridge Primary Yellow */
+    --primary: 45 100% 55%;
+    --primary-foreground: 210 40% 8%;
+    
+    /* Card & UI Elements */
+    --card: 0 0% 100%;
+    --card-foreground: 210 24% 16%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 24% 16%;
+    
+    --secondary: 45 100% 95%;
+    --secondary-foreground: 210 40% 8%;
+    
+    --muted: 45 100% 95%;
+    --muted-foreground: 210 24% 16%;
+    
+    --accent: 45 89% 72%;
+    --accent-foreground: 210 40% 8%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 45 89% 72%;
+    --input: 0 0% 100%;
+    --ring: 45 100% 55%;
+    
+    --radius: 0.75rem;
+    
+    /* Gradients */
+    --gradient-solar-hero: linear-gradient(135deg, hsl(var(--solar-300)), hsl(var(--sky-300)), hsl(var(--solar-500)));
+    --gradient-solar-subtle: linear-gradient(180deg, hsl(var(--solar-100)), hsl(var(--background)));
+    
+    /* Shadows */
+    --shadow-solar: 0 10px 30px -10px hsl(var(--solar-500) / 0.3);
+    --shadow-elevation: 0 4px 6px -1px hsl(210 40% 8% / 0.1), 0 2px 4px -1px hsl(210 40% 8% / 0.06);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Keep light mode design for LeadBridge brand consistency */
+    --background: 0 0% 100%;
+    --foreground: 210 24% 16%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: hsl(var(--solar-100));
+  }
+  
+  /* LeadBridge Animations */
+  .shimmer-text {
+    background: var(--gradient-solar-hero);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  
+  @keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  .solar-glow {
+    box-shadow: var(--shadow-solar);
+  }
+  
+  .elevation {
+    box-shadow: var(--shadow-elevation);
+  }
+}
